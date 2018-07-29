@@ -5,7 +5,7 @@ import { Actions } from 'react-native-router-flux';
 export default class RoundedBlueButton extends Component {
     constructor(props) {
         super(props)
-        this.state = { pressStatus: false };
+        this.state = { pressStatus: props.pressStatus };
     }
 
     onPress() {

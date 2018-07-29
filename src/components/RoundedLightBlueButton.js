@@ -18,7 +18,7 @@ export default class RoundedLightBlueButton extends Component{
             <TouchableOpacity
               style={styles.button} onPress={this.onPress.bind(this)}
             >
-              <Text style={{color: 'white'}}> {this.props.text} </Text>
+              <Text style={styles.textBlue}> {this.props.text} </Text>
             </TouchableOpacity>
            </View>
         )
@@ -30,15 +30,21 @@ const styles = StyleSheet.create({
       paddingHorizontal: 10,
    
     },
+    textBlue: {
+      fontSize: 18,
+      fontWeight:'bold',
+      textAlign: 'center',
+      color: '#00BCD4'
+  },
     button: {
       marginTop:10,
       paddingTop:15,
       paddingBottom:15,
       paddingHorizontal:30,
       marginRight:5,
-      backgroundColor:'#00BCD4',
+      backgroundColor:'#fff',
       borderRadius:30,
-      borderWidth: 1,
-      borderColor: '#fff'
+      borderWidth: 2,
+      borderColor: '#00BCD4'
     }
   });

@@ -6,13 +6,18 @@ import { Actions } from 'react-native-router-flux';
 export default class CalendarView extends Component {
     constructor(props) {
         super(props)
-        this.state = {selected:props.selected};
+        this.state = {selected:props.selected, todayDate:props.todayDate};
         this.onDayPress = this.onDayPress.bind(this);
         console.log('>>>>Current Day: ' + CalendarList.dateString)
         console.log('>>>>Current Day: ' + CalendarList.day)
     }
 
     onDayPress(day) {
+        if(this.state.todayDate===day.dateString)
+        this.setState({
+            selected: 'Today'
+        });
+        else
         this.setState({
             selected: day.dateString
         });
@@ -44,6 +49,7 @@ export default class CalendarView extends Component {
                     futureScrollRange={50}
                     scrollEnabled={true}
                     showScrollIndicator={true}
+                    monthFormat={'MMM yyyy'}
                     onDayChange={(day) => { console.log('day changed') }}
                     theme={{
                         //calendarBackground: '#333248',

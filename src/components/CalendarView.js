@@ -11,17 +11,22 @@ export default class CalendarView extends Component {
     }
 
     
-    onDayPress(day) {
-        if(this.state.todayDate===day.dateString)
+    onDayPress(dayObj) {
+        if(this.state.todayDate===dayObj.day)
         this.setState({
             selected: 'Today'
         });
         else
         this.setState({
-            selected: day.dateString
+            selected: dayObj.dateString
         });
         console.log('>>>>this.state.todayDate: ' + this.state.todayDate)
-        console.log('>>>>day.dateString: ' + day.dateString)
+        console.log('>>>>day.dateString: ' + dayObj.dateString)
+        
+    }
+
+    componentDidUpdate()
+    {
         this.props.onChangeValue(this.state.selected)
     }
 
